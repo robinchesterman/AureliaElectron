@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "es2016",
+        "module": "commonjs",
+        "moduleResolution": "node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "sourceMap": true,
+      "outDir": "public",
+      "lib" : ["dom", "scripthost", "es2015", "es2015.collection", "es2015"]
+    },
+    "exclude": [
+      "node_modules"
+    ]
+  }

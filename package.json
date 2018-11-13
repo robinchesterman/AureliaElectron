@@ -1,0 +1,53 @@
+{
+  "name": "aureliaelectron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env ELECTRON_ENV=production electron .",
+    "build:render": "cross-env NODE_ENV=production webpack",
+    "build:main": "tsc --project tsconfig.main.json --rootDir ./src/ --outDir ./",
+    "build": "concurrently \"npm run build:render\" \"npm run build:main\"",
+    "debug": "concurrently \"cross-env NODE_ENV=debug webpack-dev-server --content-base build --watch\" \"wait-on http://localhost:8080 && electron . --enable-logging --remote-debugging-port=9222",
+    "dev": "concurrently \"cross-env NODE_ENV=develop webpack-dev-server --content-base build --hot\" \"wait-on http://localhost:8080 && electron .\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^3.0.9"
+  },
+  "devDependencies": {
+    "aurelia-bootstrapper": "^2.3.0",
+    "aurelia-fetch-client": "^1.6.0",
+    "aurelia-framework": "^1.3.0",
+    "aurelia-loader-webpack": "^2.2.1",
+    "aurelia-pal": "^1.8.0",
+    "aurelia-router": "^1.6.3",
+    "aurelia-webpack-plugin": "^3.0.0",
+    "babili-webpack-plugin": "^0.1.2",
+    "concurrently": "^4.0.1",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.1",
+    "exports-loader": "^0.7.0",
+    "expose-loader": "^0.7.5",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "imports-loader": "^0.8.0",
+    "jquery": "^3.3.1",
+    "json-loader": "^0.5.7",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^5.3.0",
+    "typescript": "^3.1.6",
+    "url-loader": "^1.1.2",
+    "wait-on": "^3.2.0",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10",
+    "whatwg-fetch": "^3.0.0",
+    "write-file-webpack-plugin": "^4.4.1"
+  }
+}
